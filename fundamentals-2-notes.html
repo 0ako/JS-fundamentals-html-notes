@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    
+<script>
+// // JavaScript goes here
+// //ctrl+k+c comments out a block of code. ctrl+k+u uncomments.
+// console.log("Hello World!")
+
+// // DATA TYPES https://javascript.info/types
+// let message = "hello!";
+// message = 123456;
+// alert(message); // 123456
+
+// // Strings
+// let name = "Claire";
+// alert(`Hello, ${name}!`);
+// alert(`the result is ${1+2}`);
+
+// // Boolean
+// let isGreater = 4 > 1;
+// alert(isGreater);
+
+// // HANDLING TEXT — strings in JavaScript https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Strings
+// // Strings
+// let string ='The revolution will not be televised';
+// string;
+// let badString = string;
+
+// // Escaping a character
+// let bigMouth = 'I\'m hungry'
+// bigMouth
+
+// // Concatentating
+// let one = 'Hi,';
+// let two = 'how are you?';
+// let response = one + one + one + 'I\'m fine - ' + two;
+
+// let myDate = '19' + '92';
+
+// //Number to String
+// let myNum = 123;
+// let myString = myNum.toString();
+// typeof myString;
+
+// //String to Number
+// let myString2 = '123';
+// let myNum2 = Number(myString2)
+// typeof myNum2;
+
+// // JAVASCRIPT STRING METHODS https://www.w3schools.com/js/js_string_methods.asp , https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+// // Find string length 
+// let txt = "lasdkjvnkdfjvnsdkflvj";
+// let sln = txt.length;
+
+// // Find a string in a string
+// let str = "Please locate where 'locate' occurs."
+// let pos = str.indexOf("locate");
+// let pos2 = str.lastIndexOf("locate");
+// let pos3 = str.indexOf("locate", 15);
+// let pos4 = str.lastIndexOf("locate", 15);
+// let pos5 = str.search("locate");
+// // The two methods are NOT equal. These are the differences:
+// // The search() method cannot take a second start position argument.
+// // The indexOf() method cannot take powerful search values (regular expressions).
+// alert(pos); // 7
+// alert(pos2); // 21
+// alert(pos3); // 21
+// alert(pos4); // 7
+// alert(pos5); // 7
+
+// I stopped taking notes in the .odt at this point
+
+// //Slice slice()
+// let str = 'Apple, Banana, Kiwi';
+// let res = str.slice(7,13);
+// let res2 = str.slice(-12, -6);
+// //Omitting the second parameter cuts out the rest of the string
+// let res3 = str.slice(7);
+// let res4 = str.slice(-12);
+// //Substring() is similar to slice() but cannot accept negative values
+// //Substr() is similar to slice(), except the second parameter specifies the length
+// let res5 = str.substr(7, 6);
+// alert(res);
+// alert(res2);
+// alert(res3);
+// alert(res4);
+
+
+// // Replacing String Content
+// str = 'Please visit Microsoft and Microsoft!';
+// let n = str.replace("Microsoft","W3Schools");
+// // doesn't change original string, returns new string
+// // by default only replaces the first match
+// // by default method is case-sensitive
+// // To replace case insensitive, use a regular expression with an /i flag (insensitive)
+// let n2 = str.replace(/MICROSOFT/i, "W3Schools" )
+// // Replace global matches, use -g flag
+// let n3 = str.replace(/MicrOsoFt/ig, "W3Schools");
+
+// // // Converting to upper and lower case
+// let text1 = 'Hello World!';
+// let text2 = text1.toUpperCase();
+// let text3 = text2.toLowerCase();
+
+// Anki to here 2/8/2021
+
+// // Concat() can be used instead of + operator
+// // the two below do the same
+// let text1 = "Hello";
+// let text2 = "World";
+// let text3 = text1.concat(" ", text2);
+// let text4 = text1 + " " + text2;
+// // All string methods return a new string. They don't modify the original string.
+// // Formally said: Strings are immutable: Strings cannot be changed, only replaced.
+
+// // trim() removes whitespace on sides of string
+// let str = "        wazzup          ";
+// let strTrim = str.trim();
+// alert(str.trim());
+
+// // String padding padStart() , padEnd()
+// let str = '5';
+// str2 = str.padStart(4,0);
+// alert(str2);
+// str3 = str.padEnd(4,0);
+// alert(str3);
+
+// // Extract string characters: charAt(position) , charCodeAt(position) , Property access [ ]
+// // CharAt() returns the character at a specified index (position) in string
+// let str = "Let's go!";
+// let strCharAt = str.charAt(0);
+// // charCodeAt() returns the unicode
+// let strCharCodeAt = str.charCodeAt(0);
+// // Property Access [] : this might be unpredictable
+// let strProp = str[0];
+
+// // Convert String to an array : split()
+// let txt = "a,b,c,d,e";
+// let txtComma = txt.split(","); // Split on commas
+// let txtSpace = txt.split(" ");
+// let txtPipe = txt.split("|");
+// let txtOmit = txt.split(); // Separator ommited, the returned array will contain whole string in index [0]
+// let txtEmpty = txt.split(""); // Seperator is "", the returned array will be an array of single characters
+// alert(txt);
+// alert(txtComma);
+// alert(txtSpace);
+// alert(txtPipe);
+// alert(txtOmit);
+// alert(txtEmpty);
+// // COMPARISONS (>, <, >=, <=) https://javascript.info/comparison
+// alert(2 != 1);
+// let result = (5 == 5);
+// alert(result);
+// // String Comparisons : Compares using unicode order
+// alert('Z' > 'A');
+// alert( 'Glow' > 'Glee' );
+// alert( 'Bee' > 'Be' );
+
+// // Comparisons of two different types : Javascript converts the values to numbers
+// alert('01' == 1); // true
+// // For booleans, true becomes 1, false becomes 0
+// alert(true == 1); // true
+// // Regular equality check (==) cannot differentiate between 0 and false, as operands of different types are converted to numbers by the equality operator 
+// alert('' == false); // true
+// // Strict equality operator (===) checks equality without type conversion
+// alert(0 === false); // false 
+// alert(0 !== false); // true
+// alert(0 != false); // false 
+
+// // Comparison with null and undefined (they only equal each other, not equal anything else)
+// alert(null == undefined); // true
+// alert(null === undefined); // false 
+// // For maths and other comparisons (< > <= >=) null/undefined are converted to numbers: 
+// // null becomes 0, while undefined becomes NaN.
+
+// // Strange result, null vs 0
+// alert( null > 0 );  // (1) false
+// alert( null == 0 ); // (2) false
+// alert( null >= 0 ); // (3) true
+// // Equality check (==) and comparisons (> < >= <=) work differently. 
+// // Comparisons convert null to a number, treating it as 0. 
+// // That’s why (3) null >= 0 is true and (1) null > 0 is false.
+
+// // Summary
+// // Comparison operators return a boolean value.
+// // Strings are compared letter-by-letter in the “dictionary” order.
+// // When values of different types are compared, they get converted to numbers (with the exclusion of a strict equality check).
+// // The values null and undefined equal == each other and do not equal any other value.
+// // Be careful when using comparisons like > or < with variables that can occasionally be null/undefined. Checking for null/undefined separately is a good idea.
+
+// //Tasks
+// 5 > 4 = True
+// "apple" > "pineapple" = False
+// "2" > "12" = True  // Dictionary Comparison
+// undefined == null = True
+// undefined === null = False
+// null == "\n0\n" = False
+// null === +"\n0\n" = False
+
+// CONDITIONAL STATEMENTS JavaScript (if, else, and else if) https://www.w3schools.com/js/js_if_else.asp
+// Use if to specify a block of code to be executed, if a specified condition is true
+// Use else to specify a block of code to be executed, if the same condition is false
+// Use else if to specify a new condition to test, if the first condition is false
+// Use switch to specify many alternative blocks of code to be executed
+
+
+// // The if statement. 
+// The if (…) statement evaluates the expression in its parentheses and converts the result to a boolean. Format:
+// // if (condition) {block of code to be executed if the condition is true}
+// if (hour < 18) {
+//     greeting = "Good day";
+// }
+
+// // The else statement specifies a block of code to be executed if the condition is false. Format:
+// // if (condition) {block of code to be executed if the condition is true} 
+// // else {block of code to be executed if the condition is false}
+// if (hour < 18) {
+//     greeting = 'Good day';
+// } else {
+//     greeting = 'Good evening';
+// }
+
+// // Use the else if statement to specify a new condition if the first condition is false.
+// // if (condition1) {block of code to be executed if condition1 is true} 
+// // else if (condition2) {block of code to be executed if the condition1 is false and condition2 is true} 
+// // else {block of code to be executed if the condition1 is false and condition2 is false}
+// if (time < 10) {
+//     greeting = "Good morning";
+// } else if (time < 20) {
+//     greeting = "Good day";
+// } else {
+//     greeting = "Good evening";
+// }
+
+// LOGICAL OPERATORS (|| OR, && AND, ! NOT) https://javascript.info/logical-operators
+
+// || (OR) https://javascript.info/logical-operators#or
+// The OR || operator does the following:
+// Evaluates operands from left to right.
+// For each operand, converts it to boolean. If the result is true, stops and returns the original value of that operand.
+// If all operands have been evaluated (i.e. all were false), returns the last operand.
+// There are four possible logical combinations:
+// alert( true || true );   // true
+// alert( false || true );  // true
+// alert( true || false );  // true
+// alert( false || false ); // false
+
+// // If an operand is not a boolean, it’s converted to a boolean for the evaluation.
+// if (1 || 0) { // works just like if( true || false )
+//   alert( 'truthy!' );
+// }
+
+// // Most of the time, OR || is used in an if statement to test if any of the given conditions is true.
+// let hour = 12;
+// let isWeekend = true;
+// if (hour < 10 || hour > 18 || isWeekend) {
+//   alert( 'The office is closed.' ); // it is the weekend
+// }
+// Given multiple OR’ed values:
+// result = value1 || value2 || value3;
+// The OR || operator does the following:
+// Evaluates operands from left to right.
+// For each operand, converts it to boolean. If the result is true, stops and returns the original value of that operand.
+// If all operands have been evaluated (i.e. all were false), returns the last operand.
+
+// // A value is returned in its original form, without the conversion.
+// // In other words, a chain of OR || returns the first truthy value or the last one if no truthy value is found.
+// // For instance:
+// alert( 1 || 0 ); // 1 (1 is truthy)
+// alert( null || 1 ); // 1 (1 is the first truthy value)
+// alert( null || 0 || 1 ); // 1 (the first truthy value)
+// alert( undefined || null || 0 ); // 0 (all falsy, returns the last value)
+// // This leads to some interesting usage compared to a “pure, classical, boolean-only OR”. examples:
+// // 1. Getting the first truthy value from a list of variables or expressions.
+// // 2. Short-circuit evaluation.
+
+// // && (AND) https://javascript.info/logical-operators#and 
+// // In classical programming, AND returns true if both operands are truthy and false otherwise:
+// alert( true && true );   // true
+// alert( false && true );  // false
+// alert( true && false );  // false
+// alert( false && false ); // false
+
+// // An example with if:
+// let hour = 12;
+// let minute = 30;
+// if (hour == 12 && minute == 30) {
+//     alert( 'The time is 12:30' );
+// }
+
+// // The AND && operator does the following:
+// // Evaluates operands from left to right.
+// // For each operand, converts it to a boolean. If the result is false, stops and returns the original value of that operand.
+// // If all operands have been evaluated (i.e. all were truthy), returns the last operand.
+// // In other words, AND returns the first falsy value or the last value if none were found.
+
+// // The rules above are similar to OR. The difference is that AND returns the first falsy value while OR returns the first truthy one.
+// // Examples:
+// // if the first operand is truthy,
+// // AND returns the second operand:
+// alert( 1 && 0 ); // 0
+// alert( 1 && 5 ); // 5
+// // if the first operand is falsy,
+// // AND returns it. The second operand is ignored
+// alert( null && 5 ); // null
+// alert( 0 && "no matter what" ); // 0
+
+// // We can also pass several values in a row. See how the first falsy one is returned:
+// alert( 1 && 2 && null && 3 ); // null
+// // When all values are truthy, the last value is returned:
+// alert( 1 && 2 && 3 ); // 3, the last one
+
+// // Precedence of AND && is higher than OR ||
+// // So the code 
+// a && b || c && d 
+// // is essentially the same as if the && expressions were in parentheses: 
+// (a && b) || (c && d).
+
+// Don’t replace if with || or && : if is more obvious and tends to be a little bit more readable. 
+// So we recommend using every construct for its purpose: use if if we want if and use && if we want AND.
+
+// // ! (NOT) https://javascript.info/logical-operators#not
+// // The operator accepts a single argument and does the following:
+// // Converts the operand to boolean type: true/false.
+// // Returns the inverse value.
+// alert( !true ); // false
+// alert( !0 ); // true
+
+// // A double NOT !! is sometimes used for converting a value to boolean type:
+// alert( !!"non-empty string" ); // true
+// alert( !!null ); // false
+// // That is, the first NOT converts the value to boolean and returns the inverse, and the second NOT inverses it again. 
+// // In the end, we have a plain value-to-boolean conversion.
+
+// // There’s a little more verbose way to do the same thing – a built-in Boolean function:
+// alert( Boolean("non-empty string") ); // true
+// alert( Boolean(null) ); // false
+
+// The precedence of NOT ! is the highest of all logical operators, so it always executes first, before && or ||.
+
+//anki to here 2/9/2021
+
+// Tasks:
+// alert( alert(1) || 2 || alert(3) );  // The answer: first 1, then 2 // The call to alert returns undefined (It just shows a message, so there’s no meaningful return)
+// alert( alert(1) && alert(2) );  // The answer: 1, and then undefined // && evaluates the left operand (outputs 1), and immediately stops, because undefined is a falsy value.
+// alert( null || 2 && 3 || 4 );  // The answer: 3 // The precedence of AND && is higher than ||, so it executes first. The result of 2 && 3 = 3, so the expression becomes: null || 3 || 4
+// if (age >= 14 && age <= 90) {} // 
+// if (!(age >= 14 && age <= 90)) {}; // 
+// if (age < 14 || age > 90) {};
+
+// Which of these alerts are going to execute? What will the results of the expressions be inside if(...)?
+// if (-1 || 0) alert( 'first' );
+// if (-1 && 0) alert( 'second' );
+// if (null || -1 && 1) alert( 'third' );
+
+// // Check the login : My answer //////////////////////////////////////////////////////////////////////////////////////////
+// let login = prompt("Username: (Admin)"); 
+// let usr = "Admin";
+// let pwd = "TheMaster";
+
+// if ( login === usr ) {
+//     let login = prompt("Password: (TheMaster)");
+//     if ( login === pwd ){
+//         alert( 'Welcome' );
+//     }
+
+//     else if ( login == null || login == false) {
+//         alert('Canceled');
+//     }
+
+//     else {
+//         alert ("Wrong Password");
+//     }
+// }
+
+// else if ( login == null || login == false) {
+//     alert( 'Canceled' );
+// }
+
+// else {
+//     alert( "I don't know you" );
+// }
+
+// // Check the login : Correct way (better, values not hard-coded) /////////////////////////////////
+// let login = prompt("Who's there? "); // Admin
+// let usr = "Admin"; 
+// let pwd = "TheMaster"; 
+
+// if (login == false || login == null) { // Empty field || null is cancel button or Esc 
+//     alert("Canceled"); 
+// } 
+
+// else if (login != usr) { 
+//     alert("I don't know you"); 
+// } 
+
+// else { // if login == usr
+//     let login = prompt("Password? "); // TheMaster
+   
+//     if (login == null || login == false) { // Empty field || null is cancel button or Esc
+//         alert("Canceled");
+//     } 
+
+//     else {
+//         login == pwd ? alert("Welcome!") : alert("Wrong password"); // if Password is true : if Password is wrong
+//     }
+// }
+
+// // Check the login : Correct way (noob, hard-coded values) ////////////////////////////////////////////
+// let who = prompt("Who's there?");
+// if (who === "Admin") {
+//     let login = prompt("Password?");
+//     if (login === "TheMaster") {
+//         alert("Welcome");
+//     } 
+//     else if (login === null || login == false) {
+//         alert('Canceled')
+//     } 
+//     else {
+//         alert ('Wrong password')
+//     }
+// } 
+// else if (who === null || who == false) {
+//     alert('Canceled');
+// } 
+// else {
+//     alert('I dont know you');
+// }
+
+// Making decisions in your code — conditionals https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals
+// Chaining on extra choices/outcomes to your if...else — using else if.
+
+// Testing boolean (true/false) values:
+// Any value that is not false, undefined, null, 0, NaN, or an empty string ('')
+// returns TRUE when tested as a conditional statement, 
+// therefore you can use a variable name on its own to test whether it is true, 
+// or even that it exists (that is, it is not undefined.)
+
+// // You can combine as many logical statements together as you want, in whatever structure. 
+// // The following example executes the code inside only if both OR statements return true, 
+// // meaning that the overall AND statement will return true:
+// if ((x === 5 || y > 3 || z <= 10) && (loggedIn || userName === 'Steve')) {
+//   // run the code
+// }
+
+// // A common mistake when using the logical OR operator in conditional statements is 
+// // to try to state the variable whose value you are checking once, 
+// // and then give a list of values it could be to return true, separated by || (OR) operators. 
+// // For example:
+// if (x === 5 || 7 || 10 || 20) {
+//   // run my code
+// }
+// //
+// // In this case the condition inside if(...)  will always evaluate to true 
+// // since 7 (or any other non-zero value) always evaluates to true. 
+// // This condition is actually saying "if x equals 5, or 7 is true — which it always is". 
+// // This is logically not what we want! To make this work 
+// // you've got to specify a complete test either side of each OR operator:
+// if (x === 5 || x === 7 || x === 10 ||x === 20) {
+//   // run my code
+// }
+
+// Switch statements  https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals#a_switch_example
+// if...else statements do the job of enabling conditional code well, 
+// but they are mainly good for cases where you've got a couple of choices, 
+// and each one requires a reasonable amount of code to be run, 
+// and/or the conditions are complex (for example, multiple logical operators). 
+// Use break; keyword in the switch statement to make the program run faster   
+
+// For cases where you just want to set a variable to a certain choice of value 
+// or print out a particular statement depending on a condition, 
+// the syntax can be a bit cumbersome, especially if you've got a large number of choices.
+
+// // In such a case, switch statements are your friend — they take a single expression/value as an input,
+// // and then look through a number of choices until they find one that matches that value, 
+// // executing the corresponding code that goes along with it. 
+// function setWeather() {
+//   const choice = choice.value;
+
+//   switch (choice) {
+//     case 'sunny':
+//       para.textContent = 'It is nice and sunny outside today. Wear shorts!';
+//       break;
+//     case 'rainy':
+//       para.textContent = 'Rain is falling outside; take a rain coat.';
+//       break;
+//     case 'snowing':
+//       para.textContent = 'The snow is coming down — it is freezing! Best to stay in.';
+//       break;
+//     case 'overcast':
+//       para.textContent = 'It isn\'t raining, but the sky is grey and gloomy.';
+//       break;
+//     default:
+//       para.textContent = '';
+//     }
+// }
+
+// Switch Ranges https://www.digitalocean.com/community/tutorials/how-to-use-the-switch-statement-in-javascript 
+// There might be an occasion in which you will need to evaluate a range of values in a switch block,
+// as opposed to a single value (as in our example above). 
+// We can do this by setting our expression to true and doing an operation within each case statement.
+// This means that any case that evaluates to true will be a match.
+// Just like with else if, switch is evaluated from top to bottom, and the first true match will be accepted. 
+// e.g. Multiple cases
+
+
+// // Ternary operator https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals#ternary_operator
+// // The ternary or conditional operator is a small bit of syntax that tests a condition 
+// // and returns one value/expression if it is true, and another if it is false
+// // It's useful in some situations, and can take up a lot less code than an if...else block 
+// // if you have two choices that are chosen between via a true/false condition.
+// // pseudocode:
+// // ( condition ) ? run this code : run this code instead
+// let greeting = ( isBirthday ) ? 'Happy birthday Mrs. Smith — we hope you have a great day!' : 'Good morning Mrs. Smith.';
+
+// Ternary operator is not just for setting variable values; you can also run functions, or lines of code
+// Ternary operator example https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals#ternary_operator_example
+
+// Active learning: A simple calendar https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals#active_learning_a_simple_calendar
+// I learnt that:
+// let days = 30; is not the same as
+// days = 30; which doesn't declare the value, just updates it.
+
+// Active learning: More color choices! https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals#active_learning_more_color_choices!
+// I learnt:  color values are strings, so need to be wrapped in quotes
+
+// Test your skills: Conditionals Switch Statements https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Test_your_skills:_Conditionals#conditionals_3
+// I learnt:  the EXPRESSION in "switch (expression) {" should be TRUE. Since we’re checking a range, 
+// we will perform the operation in each case to check if each expression is evaluating to true 
+// then break out of the statement once the requirements for true have been satisfied.
+//
+// (The switch statement evaluates an expression, 
+// the value of the expression is then compared with the values of each case in the structure. 
+// If there is a match, the associated block of code is executed.)
+// A case can include comparisons
+
+// Conditional branching: if, '?' https://javascript.info/ifelse
+// Any string except an empty one (and "0" is not empty) becomes true in the logical context.
+
+// anki to here 2/10
+
+</script>
+</body>
+</html>

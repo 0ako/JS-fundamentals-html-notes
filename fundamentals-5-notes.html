@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>fundies 5</title>
+</head>
+<body>
+<script>
+    
+    // let fruit = prompt("What fruit to buy?", "apple");
+    
+    // let bag = {
+        //     [fruit]: 5,
+        // }
+        // alert(bag.apple);
+        
+        // // the above works the same as:
+        // let bag = {};
+        // bag[fruit] = 5;
+        // alert(bag.apple);
+        
+        // let bag = {
+        //     [fruit + "Computers"]: 5,
+        // }
+        // alert(bag["appleComputers"])
+        
+        // function makeUser(name, age, cats) {
+        //     return {
+        //         name: name,
+        //         age: age,
+        //         "likes cats": cats,
+        //     };
+        // }
+        
+        // let user = makeUser("John", 30, true);
+        // alert(user.name);
+        // alert(user.age);
+        // alert(user["likes cats"]);    
+        
+        // let key = prompt("What do you want to know about the user?", "name");
+        // alert(user[key]);
+
+        // // Property value shorthand:
+        // function makeUser(name, age, cats) {
+        //     return {
+        //         name,
+        //         age,
+        //         cats,
+        //     }
+        // }
+
+        // let user = {
+        //     name,
+        //     age: 30,
+        // }
+
+        // Property name limitations:
+        // property names below are OK:
+        // let obj = {
+        //     for: 1,
+        //     let: 2,
+        //     return: 3,
+        // };
+
+        // alert(obj.for + obj.let + obj.return); // 6
+
+        // in short, there are no limitations for property names. They can be any strings or symbols.
+        // Other types (e.g. numbers) are automatically converted to strings.
+
+        // let obj = {
+        //     0: "test",
+        // }
+
+        // // both alerts acces the same property as number 0 is converted to "0":
+        // alert(obj["0"]);
+        // alert(obj[0]);
+
+        // // However, there's a minor gotcha with a specical property named __proto__
+        // let obj = {};
+        // obj.__proto___ = 5;
+        // alert(obj.__proto__); // [object Object] - the value is an object, didn't work as intended
+
+        // Property existence test, "in" operator
+        // A notable feature of objects in JS, compared to other languages is that it's possible to access any property. 
+        // There will be no error if the property doesn't exist. Reading a non-existent property just returns undefined. 
+        // The syntax for special operator "in" is:
+        // "key" in object
+        // let user = { name: "John", age: 30 };
+        // alert("age" in user);
+        // alert("blabla" in user);
+
+        // let key = "age";
+        // alert(key in user); // true, property "age" exists
+
+        // Most of the time it's enough to compare against undefined, but a case when that fails is:
+        // When an object property exists, but it stores a value of undefined:
+
+        // let obj = {
+        //     test: undefined,
+        // };
+
+        // alert(obj.test); // undefined 
+        // alert("test" in obj); // true, the property "test" exists
+
+        // in above code, property obj.test technically exists, so in operator works correctly.
+        // This is a very rare situation, as undefined shouldn't be explicitly assigned. 
+        // We mostly use null for "unknown" or "empty" values. So the "in" operator is an exotic guest in the code.
+        
+        // THE "for..in" loop, syntax:
+        // let user = {
+        //     name: "Andy",
+        //     age: 28,
+        //     isCute: true,
+        // }
+
+        // for (let key in user) {
+        //     alert(key); // alerts keys
+        //     alert(user[key]); // alerts values for the keys
+        // }
+
+        // NOTE: all 'for' constructs allow us to declare the looping variable inside the loop. We use "let key" here.
+        // We could also use another variable instead of key. For instance: for (let prop in obj) is also widely used.
+
+        // ORDERED like an object: If we loop over an object, do we get all properties in the same order they were added?
+        // Short answer: Integer properties are sorted, others appear in creation order. 
+
+        // Phone codes below go in ascending sorting order, because they are integers.
+        // let codes = {
+        //     "49":"Germany",
+        //     "41": "Switzerland",
+        //     "44": "Great Britain",
+        //     "1": "USA",
+        // };
+
+        // for (let code in codes) {
+        //     alert(code); // 1, 41, 44, 49
+        // }
+
+        //  The above codes are "INTEGER PROPERTIES": They are strings that can be converted to and from a integer without change.
+        // Below, "49" is an integer property name. But "+49" and "1.2" are not:
+        // Math.trunc is a built-in function that removes the decimal part
+        // alert(String(Math.trunc(Number("49")))) // 49, same, integer property. 
+        // alert(String(Math.trunc(Number("+49")))) // 49, different, not an integer property
+        // alert(String(Math.trunc(Number("1.2")))) // 1, different, not an integer property
+
+        // On the other hand, if keys/properties are non-integer, then they are listed in the creation order:
+        // let user = {
+        //     name: "Andy",
+        //     surname: "Ko",
+        // }
+        // user.age = 25; // add one more property
+        
+        // for (let prop in user) {
+        //     alert(prop); // name, surname, age
+        // }
+
+        // Back to the phone codes, to fix the issues, we can simply "cheat" by making those values non-integer. 
+        // Adding a "+" sign before each code is enough.  
+        let codes = {
+            "+49":"Germany",
+            "+41": "Switzerland",
+            "+44": "Great Britain",
+            "+1": "USA",
+        };
+        for (let key in codes) {
+            alert(+key); // the "+" before key lets the alert display the key without a "+"
+        }
+
+
+
+
+</script>
+</body>
+</html>
