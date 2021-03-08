@@ -210,14 +210,14 @@
     // alert(sum); // 390
         
     ////
-    // before the call
-    let menu = {
-    width: 200,
-    height: 300,
-    title: "My menu"
-    };
+    // // before the call
+    // let menu = {
+    // width: 200,
+    // height: 300,
+    // title: "My menu"
+    // };
 
-    multiplyNumeric(menu);
+    // multiplyNumeric(menu);
 
     // after the call
     // menu = {
@@ -226,17 +226,96 @@
     // title: "My menu"
     // };
 
-    function multiplyNumeric(obj) {
-        for (let prop in obj) {
-            if (typeof obj[prop] == "number") {  // ? Why not obj["prop"] 
-                obj[prop] *= 2;
-            } 
-        }
-    }
+    // function multiplyNumeric(obj) {
+    //     for (let prop in obj) {
+    //         if (typeof obj[prop] == "number") {  // Not obj["prop"], because [prop] is a variable property name, not a string 
+    //             obj[prop] *= 2;
+    //         } 
+    //     }
+    // }
+
+    // JavaScript object basics https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics
+    // properties, methods, object literal, dot notation, namespace, encapsulation, sub-namespaces, associative arrays
+
+    // const person = {
+    //     name: {
+    //         first: 'Bob',
+    //         last: 'Smith',
+    //     },
+    //     age: 32,
+    //     gender: 'male',
+    //     interests: ['music', 'skiing'],
+    //     bio: function () {
+    //         alert(this.name.first + ' ' + this.name.last + ' is ' + this.age + ' years old. He likes ' + this.interests[0] + ' and ' + this.interests[1] + '.');
+    //     },
+    //     greeting: function() {
+    //         alert('Hi, I\'m ' + this.name[0] + '.');
+    //     }
+    // };
+
+    // let myDataName = "height";
+    // let myDataValue = "1.78m";
+
+    // person[myDataName] = myDataValue;
+    // adding a property to an object using the method above doesn't work with dot notation, which only accepts a literal member name,
+    // not a variable value pointing to a name.
+
+    // console.log(person.name.first);
+    // console.log(person["name"]["first"]);
+    // person["eyes"] = "hazel";
+    // person.farewell = function () { alert("Bye Everybody!"); }
+
+    // WHAT is "this"?
+    // The this keyword refers to the current object the code is being written inside. Above, "this" is equal to "person".
+    // When we start using constructors, this is very useful. It'll come into its own when you are dynamically generating objects.
+
+    // YOU'VE been using objects all along.
+    // message passing
 
 
+// // Task 2
+// bandInfo = {
+//     name: "Queen",
+//     nationality: "British",
+//     genre: "Rock",
+//     members: 4,
+//     formed: 1960,
+//     split: 1991,
+//     // below: a property that contains an array, each array item is an object that contains properties for 'name' and 'property' 
+//     albums: [ 
+//         {
+//             name: "magic",
+//             released: 1961,
+//         },
+//         {
+//             name: "the miracle",
+//             released: 1990,
+//         },
+//     ]
+// }
+
+// bandInfo = `${bandInfo.name} was an ${bandInfo.nationality} ${bandInfo.genre} band which was formed in ${bandInfo.formed} 
+// and it kept together until ${bandInfo.split}. The first album was ${bandInfo.albums[0].name} 
+// in ${bandInfo.albums[0].released}.`;
 
 
+let cat = {
+  name : 'Bertie',
+  breed : 'Cymric',
+  color : 'white',
+  greeting: function() {
+    console.log('Hello, said ' + this.name + ' the ' + this.breed + '.');
+  }
+}
+
+let cat2 = {
+  name : 'Bobbie',
+  breed : 'Siamese',
+  color : 'black',
+  greeting: function() {
+    console.log('Hello, said ' + this.name + ' the ' + this.breed + '.');
+  }
+}
 
 </script>
 </body>
